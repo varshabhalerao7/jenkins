@@ -18,7 +18,7 @@ git branch: 'q3', credentialsId: 'git', url: 'https://github.com/varshabhalerao7
     stage ('2nd') {
     steps {
                sh "yum install httpd -y"
-               sh "chmod -R 777 /var
+               sh "chmod -R 777 /var/www/html"
                sh " cp /mnt/vsk/index.html /var/www/html
     }
     }
