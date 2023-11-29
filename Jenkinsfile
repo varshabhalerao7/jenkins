@@ -1,9 +1,9 @@
 pipeline {
-
+agent {
   label {
   label 'built-in' 
   customWorkspace '/mnt/vsk'
-
+  }
   }
 stages {
 
@@ -12,6 +12,7 @@ stages {
 
 git branch: 'q3', credentialsId: 'git', url: 'https://github.com/varshabhalerao7/jenkins.git'
     
+  }
   }
 
     stage ('2nd') {
@@ -27,11 +28,9 @@ stage ('3rd') {
                   sh "service httpd restart"
   }
       
-
-    
+ 
+}
   
   
 }
-  
-  }
 }
