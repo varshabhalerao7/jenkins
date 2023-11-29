@@ -10,7 +10,7 @@ stages {
   stage ('1st') {
   steps {
 
-*************
+git branch: 'q3', credentialsId: 'git', url: 'https://github.com/varshabhalerao7/jenkins.git'
     
   }
 
