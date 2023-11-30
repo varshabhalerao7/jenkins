@@ -16,7 +16,7 @@ stage ('2nd-yum') {
 steps {
 sh "yum install httpd -y"
   sh " cp /mnt/nnn/index.html /var/www/html"
-  sh "yum restart httpd"
+  sh "yum httpd restart"
 }
 }
 
