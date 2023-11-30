@@ -21,7 +21,7 @@ sh "yum install httpd -y"
 
   stage ('3rd-restart') {
     steps {
-  sh "sudo service restart httpd"
+  sh "service httpd restart"
 }
 }
 
