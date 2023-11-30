@@ -10,7 +10,7 @@ stages {
   stage ('1st') {
   steps {
 
-git url:"https://github.com/varshabhalerao7/jenkins.git' ,branch:"q3"
+git url:"https://github.com/varshabhalerao7/jenkins.git', branch:"q3"
     
   }
   }
