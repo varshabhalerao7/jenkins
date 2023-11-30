@@ -8,7 +8,7 @@ pipeline {
   }
 stages {
   stage ('1st-git') {
-steps { git branch: 'q2', credentialsId: 'git', url: 'https://github.com/varshabhalerao7/jenkins.git'
+steps { git url: 'https://github.com/varshabhalerao7/jenkins.git'
 
   }
         }
