@@ -25,7 +25,7 @@ git url:"https://github.com/varshabhalerao7/jenkins.git", branch:"q3"
 
 stage ('3rd') {
   steps { 
-                  sh "service httpd restart"
+                  sh "sudo service httpd restart"
   }
       
  
