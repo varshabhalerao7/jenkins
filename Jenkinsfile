@@ -9,7 +9,7 @@ customWorkspace '/mnt/aaa'
 stages {
 stage ('1st-git') {
 steps {
-git url: 'https://github.com/varshabhalerao7/jenkins.git'
+git url:"https://github.com/varshabhalerao7/jenkins.git', branch:"q2"
 
 }
 
