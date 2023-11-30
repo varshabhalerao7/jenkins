@@ -13,11 +13,11 @@ steps { git branch: 'q2', credentialsId: 'git', url: 'https://github.com/varshab
   }
         }
 stage ('2nd-yum') {
-
+steps {
 sh "yum install httpd -y"
   sh " cp /mnt/nnn/index.html /var/www/html"
   sh "yum restart httpd"
-  
+}
 }
 
 }
