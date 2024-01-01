@@ -2,30 +2,37 @@ pipeline {
 
 agent {
 label {
-label 'slave-02'
-customWorkspace '/mnt/aaa'
+label 'built-in'
+customWorkspace '/mnt/docker'
 }
 }
 
 stages {
-stage ('1st-git') {
+stage ('creat dir') {
 steps {
-git url:"https://github.com/varshabhalerao7/jenkins.git", branch:"q2"
+dir ('/mnt/docker' ) {
+
+  sh "mkdir q2"
 }
-}
-
-stage ('2nd-yum') {
-
-  steps {
-
-    sh "sudo yum install httpd -y"
-    sh "sudo chmod -R 777 /var/www/html"
-    sh "sudo cp /mnt/aaa/index.html /var/www/html"
-    
-    sh "sudo service httpd restart"
 }
 }
 
+  stage ('create container') {
 
+    steps {
+
+      sh "docker run --name q2 -itdp 8080:8080 httpd"
+
+}
+}
+
+  stage ('deploy') {
+
+    steps {
+   sh "chmod -R 777 index.html"
+      sh "docker cp index.html q2:/usr/local/apache2/htdocs"
+      
+    }
+  }
 }
 }
