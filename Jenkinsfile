@@ -3,25 +3,26 @@ pipeline {
   agent {
     label{
       label 'built-in'
-      customWorkspace '/mnt/nnn'
+      customWorkspace '/mnt/docker/q1'
     }
   }
 stages {
-  stage ('1st-git') {
+  stage ('docker create-q1-branch') {
 steps { git url:"https://github.com/varshabhalerao7/jenkins.git", branch:"q1"
 
   }
         }
-stage ('2nd-yum') {
+stage ('create docker container') {
 steps {
-sh "yum install httpd -y"
-  sh " cp /mnt/nnn/index.html /var/www/html"
+sh "docker run --name branch-q1 -itdp 80:80 httpd"
+  
 }
 }
 
-  stage ('3rd-restart') {
+  stage ('deploy-index') {
     steps {
-  sh "service httpd restart"
+  sh "chmod -R 777 index.html"
+					sh "docker cp index.html branch-q1:/usr/local/apache2/htdocs"
 }
 }
 
