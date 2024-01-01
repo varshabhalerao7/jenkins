@@ -14,7 +14,7 @@ steps { git url:"https://github.com/varshabhalerao7/jenkins.git", branch:"q1"
         }
 stage ('create docker container') {
 steps {
-sh "docker run --name branch-q1 -itdp 80:80 httpd"
+sh "docker run --name b1 -itdp 80:80 httpd"
   
 }
 }
@@ -22,7 +22,7 @@ sh "docker run --name branch-q1 -itdp 80:80 httpd"
   stage ('deploy-index') {
     steps {
   sh "chmod -R 777 index.html"
-					sh "docker cp index.html branch-q1:/usr/local/apache2/htdocs"
+					sh "docker cp index.html b1:/usr/local/apache2/htdocs"
 }
 }
 
